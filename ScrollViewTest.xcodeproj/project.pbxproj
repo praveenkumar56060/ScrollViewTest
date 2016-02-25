@@ -13,6 +13,8 @@
 		9603E6D91C22DE11002DD023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9603E6D71C22DE11002DD023 /* Main.storyboard */; };
 		9603E6DB1C22DE11002DD023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9603E6DA1C22DE11002DD023 /* Assets.xcassets */; };
 		9603E6DE1C22DE11002DD023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9603E6DC1C22DE11002DD023 /* LaunchScreen.storyboard */; };
+		96D94F2F1C50EBDF003E54CD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D94F2D1C50EBDF003E54CD /* Fabric.framework */; };
+		96D94F301C50EBDF003E54CD /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D94F2E1C50EBDF003E54CD /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		9603E6DA1C22DE11002DD023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9603E6DD1C22DE11002DD023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9603E6DF1C22DE11002DD023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96D94F2D1C50EBDF003E54CD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		96D94F2E1C50EBDF003E54CD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D94F301C50EBDF003E54CD /* Crashlytics.framework in Frameworks */,
+				96D94F2F1C50EBDF003E54CD /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +50,8 @@
 			children = (
 				9603E6CD1C22DE10002DD023 /* ScrollViewTest */,
 				9603E6CC1C22DE10002DD023 /* Products */,
+				96D94F2D1C50EBDF003E54CD /* Fabric.framework */,
+				96D94F2E1C50EBDF003E54CD /* Crashlytics.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +97,7 @@
 				9603E6C71C22DE10002DD023 /* Sources */,
 				9603E6C81C22DE10002DD023 /* Frameworks */,
 				9603E6C91C22DE10002DD023 /* Resources */,
+				96D94F2C1C50EB92003E54CD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -143,6 +152,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		96D94F2C1C50EB92003E54CD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 11ff7f53bd83ab589fcf1875cce0fb56bd794bf1 f6c031d2a3a9852b98b3f2e07b802321adbaf325ded5c79f9afe0ad14f8d3ad9";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9603E6C71C22DE10002DD023 /* Sources */ = {
@@ -261,6 +286,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ScrollViewTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -273,6 +303,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ScrollViewTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -300,6 +334,7 @@
 				9603E6E41C22DE11002DD023 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

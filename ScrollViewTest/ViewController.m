@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <Crashlytics/Crashlytics.h>
 
 @interface ViewController ()
 
@@ -21,6 +22,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(20, 50, 100, 30);
+    [button setTitle:@"Crash" forState:UIControlStateNormal];
+    //[button addTarget:self action:@selector(crashButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    UIButton* button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button2 setTitle:@"Trigger Key Metric" forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(anImportantUserAction) forControlEvents:UIControlEventTouchUpInside];
+    [button2 sizeToFit];
+    button2.center = self.view.center;
+    [self.view addSubview:button2];
+    
+    // TODO: Track the user action that is important for you.
+    [Answers logContentViewWithName:@"Tweet" contentType:@"Video" contentId:@"1234" customAttributes:@{@"Favorites Count":@20, @"Screen Orientation":@"Landscape"}];
+}
+
+- (void)anImportantUserAction {
+    // TODO: Move this method and customize the name and parameters to track your key metrics
+    //       Use your own string attributes to track common values over time
+    //       Use your own number attributes to track median value over time
+    [Answers logCustomEventWithName:@"Video Played" customAttributes:@{@"Category":@"Comedy",
+                                                                       @"Length":@350}];
+}
+
+- (IBAction)crashButtonTapped:(id)sender {
+    [[Crashlytics sharedInstance] crash];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
